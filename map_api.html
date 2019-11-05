@@ -1,0 +1,62 @@
+ <html>
+   <head>
+     <title>Google map API</title>
+     <meta name="viewport" content="width=device-width, intitial scale=1.0">
+     <meta charset="utf-8">
+     <style>
+         body{
+             font-family: sans-serif;
+         }
+         #map{
+             height:100%;
+         }
+         #button-container{
+            margin: auto; 
+            width:300px;   
+         }
+         #btn{
+             color:white;
+             background-color: darkblue;
+             font-size: 18px;
+             border-radius: 10px;
+             text-align: center;
+             font-weight: bold;
+         }
+         #btn:hover{
+             background-color: red;
+         }
+         
+     </style>
+   </head>
+   <body>
+       
+      <div id="button-container">
+          <h1>Google map</h1>
+         <button id="btn" onclick="init()">Get your current location</button>
+      </div>
+      <div id="map"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFiZjYFMY5mWN82MeZHZXDbgQlF2rt628"></script>
+     <script>
+         let button = document.getElementById("btn")
+         let map= document.getElementById("map")
+         function init() {
+             navigator.geolocation.getCurrentPosition(myPosition);
+             btn.innerHTML = "Getting location..."
+             btn.style.backgroundColor="green"
+            
+           }
+        function myPosition(data){
+               let options={
+                center:{
+                lat:data.coords.latitude,
+                lng:data.coords.longitude
+                }
+                ,zoom:5
+            }
+               let maps = new google.maps.Map(map,options)
+           }
+       
+    </script>
+  </body>
+</html>
+    
